@@ -8,7 +8,7 @@ const Meowy = new RoarBot({
 Meowy.command("help", {
     args: [],
     fn: (reply) => {
-        reply("@Meowy help - You know what this does.")
+        reply("Commands:\nhelp - You know what this does.")
     }
 })
 
