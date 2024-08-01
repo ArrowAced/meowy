@@ -1,0 +1,34 @@
+{
+  "version": "3",
+  "packages": {
+    "specifiers": {
+      "jsr:@mbw/roarbot@^1.2.0": "jsr:@mbw/roarbot@1.2.0",
+      "jsr:@std/dotenv@^0.225.0": "jsr:@std/dotenv@0.225.0",
+      "npm:zod@3": "npm:zod@3.23.8"
+    },
+    "jsr": {
+      "@mbw/roarbot@1.2.0": {
+        "integrity": "d38ba869fa990a965c17d9d8ac3a96ed18874f4322b71fd841ac367f2b8103e6",
+        "dependencies": [
+          "npm:zod@3"
+        ]
+      },
+      "@std/dotenv@0.225.0": {
+        "integrity": "44db32932c67df82790a3e6847d7007befb6cc22d71f2f3ee7b7d00e1f0d6c94"
+      }
+    },
+    "npm": {
+      "zod@3.23.8": {
+        "integrity": "sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==",
+        "dependencies": {}
+      }
+    }
+  },
+  "remote": {},
+  "workspace": {
+    "dependencies": [
+      "jsr:@mbw/roarbot@^1.2.0",
+      "jsr:@std/dotenv@^0.225.0"
+    ]
+  }
+}
