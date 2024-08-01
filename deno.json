@@ -1,6 +1,8 @@
 {
   "imports": {
-    "@mbw/roarbot": "jsr:@mbw/roarbot@^1.3.0",
-    "@std/dotenv": "jsr:@std/dotenv@^0.225.0"
+    "@mbw/roarbot": "jsr:@mbw/roarbot@^1.4.1",
+    "@std/dotenv": "jsr:@std/dotenv@^0.225.0",
+    "deno_notify": "https://deno.land/x/deno_notify@1.4.3/ts/mod.ts",
+    "lowdb": "npm:lowdb@^7.0.1"
   }
 }

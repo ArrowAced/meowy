@@ -1,2 +1,7 @@
 *.env
 .env
+db.json
+deno.lock
+deno.lock
+deno.lock
+deno.lock
