@@ -1,6 +1,6 @@
 {
   "imports": {
-    "@mbw/roarbot": "jsr:@mbw/roarbot@^1.2.0",
+    "@mbw/roarbot": "jsr:@mbw/roarbot@^1.3.0",
     "@std/dotenv": "jsr:@std/dotenv@^0.225.0"
   }
 }
