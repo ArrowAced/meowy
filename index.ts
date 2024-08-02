@@ -50,6 +50,23 @@ Meowy.command("notify", {
     }
 })
 
+Meowy.command("color", {
+    args: [{type:"string", name:"color", optional: true}],
+    fn: async (reply, [color]) => {
+        if (!color) {
+            await Meowy.setAccountSettings({avatarColor: Math.floor(Math.random() * 2 ** 24).toString(16).padStart(6, "0")})
+            await reply("profile color randomized!")
+            return
+        }
+        if (!/^([0-9a-f]{6})$/.test(color)) {
+            await reply("invalid syntax! use a color like `f9a535` :3")
+            return
+        }
+        await Meowy.setAccountSettings({avatarColor: color})
+        await reply("profile color set! :3")
+    }
+})
+
 Meowy.command("labor", {
     args: [],
     fn: async (reply, _, post) => {
