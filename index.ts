@@ -1,16 +1,17 @@
-// deno-lint-ignore-file no-prototype-builtins
-
 import "@std/dotenv/load";
 import { RoarBot } from "@mbw/roarbot"
 import { Notification } from "deno_notify"
 
 import { Low } from 'lowdb'
 import { JSONFile } from 'lowdb/node'
+
+import { serveFile } from "@std/http/file-server"
   
 const db = new Low(new JSONFile('db.json'), null)
 await db.read()
 if (!db.data) db.data = {"users": {}};
 console.log(db.data)
+
 
 function doDefaultUserStuff(user) {
     if (!db.data.users.hasOwnProperty(user)) {
@@ -83,9 +84,29 @@ Meowy.command("balance", {
     }
 })
 
-function postcmd() {
-    //Meowy.setAccountSettings({avatarColor: Math.floor(Math.random() * 2 ** 24).toString(16).padStart(6, "0")})
-}
-
 
 Meowy.login(Deno.env.get("MEOWY_USERNAME")!,Deno.env.get("MEOWY_PASSWORD")!)
+
+Deno.serve({port: 3621, hostname:"127.0.0.1"},(req) => {
+    if (req.headers.get("upgrade") != "websocket") {
+        return serveFile(req, "./controlpanel.html")
+    }
+
+    const { socket, response } = Deno.upgradeWebSocket(req);
+
+    socket.addEventListener("open", () => {
+        console.log("control panel connection!");
+    });
+
+    socket.addEventListener("message", (event) => {
+        console.log("Got command: " + event.data)
+        console.log("------")
+        try {
+            socket.send(eval(event.data));
+        } catch(e) {
+            socket.send(e)
+        }
+    });
+
+    return response;
+});
