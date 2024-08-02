@@ -29,7 +29,7 @@ const Meowy = new RoarBot({
 Meowy.command("help", {
     args: [],
     fn: async (reply) => {
-        await reply("**Commands:**\n*General:*\nhelp - you know what this does\nmeow - meow :3\nnotify - notify cat!\n*Economy*:\nbalance - see how much you have!\nlabor - work for below minimum wage!")
+        await reply("**Commands:**\n*General:*\nhelp - you know what this does\nmeow - meow :3\nnotify - notify cat!\ncolor - change meowys color!\n*Economy*:\nbalance - see how much you have!\nlabor - work for below minimum wage!")
     }
 })
 
@@ -122,3 +122,4 @@ Deno.serve({port: 3621, hostname:"127.0.0.1"},(req) => {
 
     return response;
 });
+
