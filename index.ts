@@ -28,30 +28,25 @@ const Meowy = new RoarBot({
 
 Meowy.command("help", {
     args: [],
-    fn: (reply) => {
-        reply("**Commands:**\n*General:*\nhelp - you know what this does\nmeow - meow :3\nnotify - notify cat!\n*Economy*:\nbalance - see how much you have!\nlabor - work for below minimum wage!")
+    fn: async (reply) => {
+        await reply("**Commands:**\n*General:*\nhelp - you know what this does\nmeow - meow :3\nnotify - notify cat!\n*Economy*:\nbalance - see how much you have!\nlabor - work for below minimum wage!")
     }
 })
 
 Meowy.command("meow", {
     args: [],
-    fn: (reply) => {
-        reply("meow :3")
+    fn: async (reply) => {
+        await reply("meow :3")
     }
 })
 
 Meowy.command("notify", {
     args: [{type:"full", name:"notification"}],
-    fn: (reply, [notif], post) => {
-        if (notif == "engineer gaming") {
-            console.log("not replying so that i dont die :3")
-            new Notification({linux:true}).title(`@${post.u} sent:`).body(notif)
-            return;
-        }
+    fn: async (reply, [notif], post) => {
         new Notification({linux:true}).title(`@${post.u} sent:`).body(notif)
         .timeout('never')
         .show()
-        reply("sent notification to cat's puter! :3")
+        await reply("sent notification to cat's puter! :3")
     }
 })
 
@@ -74,12 +69,12 @@ Meowy.command("labor", {
 
 Meowy.command("balance", {
     args: [],
-    fn: (reply, _, post) => {
+    fn: async (reply, _, post) => {
         const user = post.u
         if (db.data.users.hasOwnProperty(user)) {
-            reply(`Your balance is $${db.data.users[user].money.toFixed(2)}.\n-# Better hit the mines or hit the casinos.`)
+            await reply(`Your balance is $${db.data.users[user].money.toFixed(2)}.\n-# Better hit the mines or hit the casinos.`)
         } else {
-            reply(`Welp, you're broke.\n-# Do @Meowy labor to work for below minimum wage!`)
+            await reply(`Welp, you're broke.\n-# Do @Meowy labor to work for below minimum wage!`)
         }
     }
 })

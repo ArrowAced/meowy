@@ -2,7 +2,7 @@
   "version": "3",
   "packages": {
     "specifiers": {
-      "jsr:@mbw/roarbot@^1.4.1": "jsr:@mbw/roarbot@1.4.1",
+      "jsr:@mbw/roarbot@^1.5.1": "jsr:@mbw/roarbot@1.5.1",
       "jsr:@std/cli@^1.0.2": "jsr:@std/cli@1.0.2",
       "jsr:@std/dotenv@^0.225.0": "jsr:@std/dotenv@0.225.0",
       "jsr:@std/encoding@^1.0.1": "jsr:@std/encoding@1.0.1",
@@ -17,8 +17,8 @@
       "npm:zod@3": "npm:zod@3.23.8"
     },
     "jsr": {
-      "@mbw/roarbot@1.4.1": {
-        "integrity": "56a0bea96f7bc78451c93a8a825c51276d93689744fa49516fdb6ea99642ed86",
+      "@mbw/roarbot@1.5.1": {
+        "integrity": "a947285f30011ed64f9ad942ceac9981329de55596bfbecc25ce9fb3515ba845",
         "dependencies": [
           "npm:zod@3"
         ]
@@ -119,7 +119,7 @@
   },
   "workspace": {
     "dependencies": [
-      "jsr:@mbw/roarbot@^1.4.1",
+      "jsr:@mbw/roarbot@^1.5.1",
       "jsr:@std/dotenv@^0.225.0",
       "jsr:@std/http@^1.0.0",
       "npm:lowdb@^7.0.1"
