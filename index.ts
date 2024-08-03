@@ -80,7 +80,7 @@ Meowy.command("labor", {
         db.data.users[user].money += moneyMade
         db.data.users[user].lastLabor = Date.now()
         await db.write()
-        await reply(`You do an hour of work and get $${moneyMade.toFixed(2)}.\n-# Your balance is now $${db.data.users[user].money.toFixed(2)}.`)
+        await reply(`You did an hour of work and got $${moneyMade.toFixed(2)}.\n-# Your balance is now $${db.data.users[user].money.toFixed(2)}.`)
     }
 })
 
@@ -95,7 +95,6 @@ Meowy.command("balance", {
         }
     }
 })
-
 
 Meowy.login(Deno.env.get("MEOWY_USERNAME")!,Deno.env.get("MEOWY_PASSWORD")!)
 
