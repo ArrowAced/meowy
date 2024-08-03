@@ -5,5 +5,9 @@
     "@std/http": "jsr:@std/http@^1.0.0",
     "deno_notify": "https://deno.land/x/deno_notify@1.4.3/ts/mod.ts",
     "lowdb": "npm:lowdb@^7.0.1"
-  }
+  },
+  "tasks": {
+    "meow": "deno run --allow-net --allow-read --allow-env --allow-ffi --watch index.ts"
+  },
+  "unstable": ["ffi"]
 }
