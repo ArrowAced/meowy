@@ -36,7 +36,16 @@ const Meowy = new RoarBot({
 Meowy.command("help", {
     args: [],
     fn: async (reply) => {
-        await reply("**Commands:**\n*General:*\nhelp - you know what this does\nmeow - meow :3\nnotify - notify cat!\ncolor - change meowys color!\n*Economy*:\nbalance - see how much you have!\nlabor - work for below minimum wage!")
+        await reply(`**Commands:**
+          *General:*
+          help - you know what this does
+          meow - meow :3
+          notify - notify cat!
+          color - change meowys color!
+          *Economy*:
+          balance - see how much you have!
+          labor - work for below minimum wage!
+        `)
     }
 })
 
@@ -50,9 +59,10 @@ Meowy.command("meow", {
 Meowy.command("notify", {
     args: [{type:"full", name:"notification"}],
     fn: async (reply, [notif], post) => {
-        new Notification({linux:true}).title(`@${post.u} sent:`).body(notif)
-        .timeout('never')
-        .show()
+        new Notification({linux:true}).title(`@${post.u} sent:`)
+          .body(notif)
+          .timeout('never')
+          .show()
         await reply("sent notification to cat's puter! :3")
     }
 })
