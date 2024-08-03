@@ -1,3 +1,10 @@
+/*
+yes this code might suck
+yes if it does i might actually do something about that
+please tell me if it sucks
+-cat water arrow stripes and all the other usernames ive used here
+*/
+
 import "@std/dotenv/load";
 import { RoarBot } from "@mbw/roarbot"
 import { Notification } from "deno_notify"
