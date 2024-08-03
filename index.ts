@@ -26,7 +26,7 @@ function doDefaultUserStuff(user) {
     }
 }
 
-const hour = 60 * 60 * 1000
+const cooldown = 10 * 60 * 1000
 
 const Meowy = new RoarBot({
     admins: JSON.parse(Deno.env.get("MEOWY_ADMINS")!),
@@ -79,15 +79,15 @@ Meowy.command("labor", {
     fn: async (reply, _, post) => {
         const user = post.u
         await doDefaultUserStuff(user)
-        if ((db.data.users[user].lastLabor + hour) > Date.now()) {
-            await reply(`This command can only be used once per hour!\n-# Wait ${Math.ceil(((db.data.users[user].lastLabor + hour) - Date.now()) / (60 * 1000))} more minute(s) before trying again.`)
+        if ((db.data.users[user].lastLabor + cooldown) > Date.now()) {
+            await reply(`This command can only be used once every ten minutes!\n-# Wait ${Math.ceil(((db.data.users[user].lastLabor + cooldown) - Date.now()) / (60 * 1000))} more minute(s) before trying again.`)
             return;
         }
-        const moneyMade = Math.random() * 0.452 + 0.17
+        const moneyMade = Math.random() * 1.357 + 0.52
         db.data.users[user].money += moneyMade
         db.data.users[user].lastLabor = Date.now()
         await db.write()
-        await reply(`You did an hour of work and got $${moneyMade.toFixed(2)}.\n-# Your balance is now $${db.data.users[user].money.toFixed(2)}.`)
+        await reply(`You did an cooldown of work and got $${moneyMade.toFixed(2)}.\n-# Your balance is now $${db.data.users[user].money.toFixed(2)}.`)
     }
 })
 
