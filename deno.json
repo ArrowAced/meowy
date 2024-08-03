@@ -7,7 +7,7 @@
     "lowdb": "npm:lowdb@^7.0.1"
   },
   "tasks": {
-    "meow": "deno run --allow-net --allow-read --allow-env --allow-ffi --watch index.ts"
+    "meow": "deno run --allow-net --allow-env --allow-read --allow-write --allow-ffi --watch index.ts"
   },
   "unstable": ["ffi"]
 }
