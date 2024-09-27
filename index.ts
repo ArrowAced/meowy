@@ -17,7 +17,6 @@ import { serveFile } from "@std/http/file-server"
 const db = new Low(new JSONFile('db.json'), null)
 await db.read()
 if (!db.data) db.data = {"users": {}};
-console.log(db.data)
 
 
 function doDefaultUserStuff(user) {
