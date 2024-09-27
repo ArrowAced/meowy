@@ -71,16 +71,18 @@ Meowy.command("color", {
     args: [{type:"string", name:"color", optional: true}],
     fn: async (reply, [color]) => {
         if (!color) {
-            await Meowy.setAccountSettings({avatarColor: Math.floor(Math.random() * 2 ** 24).toString(16).padStart(6, "0")})
-            await reply("profile color randomized!")
+            const color = Math.floor(Math.random() * 2 ** 24).toString(16).padStart(6, "0")
+            await Meowy.setAccountSettings({avatarColor: color})
+            await reply(`profile color randomized to #${color}! :3`)
             return
         }
-        if (!/^([0-9a-f]{6})$/.test(color)) {
-            await reply("invalid syntax! use a color like `f9a535` :3")
+        color = color.replaceAll("#","")
+        if (!/^([0-9a-f]{6})$/.test(color) || color == "4a412a") {
+            await reply("invalid syntax! use a color like `#f9a535`")
             return
         }
         await Meowy.setAccountSettings({avatarColor: color})
-        await reply("profile color set! :3")
+        await reply(`profile color set to #${color}! :3`)
     }
 })
 
@@ -97,7 +99,7 @@ Meowy.command("labor", {
         db.data.users[user].money += moneyMade
         db.data.users[user].lastLabor = Date.now()
         await db.write()
-        await reply(`You did an cooldown of work and got $${moneyMade.toFixed(2)}.\n-# Your balance is now $${db.data.users[user].money.toFixed(2)}.`)
+        await reply(`You did ten minutes of work and got $${moneyMade.toFixed(2)}.\n-# Your balance is now $${db.data.users[user].money.toFixed(2)}.`)
     }
 })
 
